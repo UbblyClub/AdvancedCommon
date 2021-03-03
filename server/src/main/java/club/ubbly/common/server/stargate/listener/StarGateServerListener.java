@@ -1,5 +1,6 @@
 package club.ubbly.common.server.stargate.listener;
 
+import alemiz.stargate.handler.StarGatePacketHandler;
 import alemiz.stargate.server.ServerSession;
 import club.ubbly.common.server.stargate.CommunicationServer;
 import club.ubbly.common.stargate.handler.CustomPacketHandler;
@@ -25,13 +26,13 @@ public class StarGateServerListener
 
   @Override
   public void onSessionAuthenticated(ServerSession session) {
-    if (main.getPacketHandler() != null) {
-      session.setPacketHandler(
-        CustomPacketHandler.instancePacketHandler(
-          main.getPacketHandler(),
-          session
-        )
-      );
+    StarGatePacketHandler handler = CustomPacketHandler.instancePacketHandler(
+        main.getPacketHandler(),
+        session
+    );
+
+    if (handler != null) {
+      session.setPacketHandler(handler);
     }
 
     main
