@@ -6,6 +6,7 @@ import alemiz.stargate.codec.ProtocolCodec;
 import alemiz.stargate.protocol.types.HandshakeData;
 import alemiz.stargate.utils.ServerLoader;
 import alemiz.stargate.utils.StarGateLogger;
+import club.ubbly.common.client.logger.Logger;
 import club.ubbly.common.stargate.handler.CustomPacketHandler;
 import club.ubbly.common.stargate.protocol.ProtocolInfo;
 import club.ubbly.common.stargate.protocol.packet.*;
@@ -36,6 +37,9 @@ public class CommunicationClient implements ServerLoader {
   private final PluginBase plugin;
 
   @Getter
+  private final StarGateLogger starGateLogger;
+
+  @Getter
   private final Class<? extends CustomPacketHandler> packetHandler;
 
   public CommunicationClient(
@@ -52,6 +56,7 @@ public class CommunicationClient implements ServerLoader {
     this.password = password;
     this.plugin = plugin;
     this.packetHandler = packetHandler;
+    this.starGateLogger = new Logger(plugin);
 
     InetSocketAddress address = new InetSocketAddress(host, port);
 
@@ -94,10 +99,5 @@ public class CommunicationClient implements ServerLoader {
       ProtocolInfo.RANK_UPDATE_PERMISSIONS,
       RankUpdatePermissionsPacket.class
     );
-  }
-
-  @Override
-  public StarGateLogger getStarGateLogger() {
-    return null;
   }
 }

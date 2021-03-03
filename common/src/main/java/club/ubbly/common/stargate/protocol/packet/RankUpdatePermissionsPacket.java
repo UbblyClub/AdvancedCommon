@@ -13,16 +13,16 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class RankUpdatePermissionsPacket extends StarGatePacket {
 
-  private String rank;
+  private int rankId;
 
   @Override
   public void encodePayload(ByteBuf byteBuf) {
-    PacketHelper.writeString(byteBuf, rank);
+    PacketHelper.writeInt(byteBuf, rankId);
   }
 
   @Override
   public void decodePayload(ByteBuf byteBuf) {
-    rank = PacketHelper.readString(byteBuf);
+    rankId = PacketHelper.readInt(byteBuf);
   }
 
   public byte getPacketId() {
