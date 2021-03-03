@@ -31,8 +31,7 @@
       <groupId>dev.waterdog</groupId>
       <artifactId>waterdog</artifactId>
       <version>1.0.0-SNAPSHOT</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/lib/WaterdogPE.jar</systemPath>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 
@@ -54,11 +53,9 @@
             </goals>
             <configuration>
               <artifactSet>
-                <exclude>
-                  <excludes>
-                    <exclude>dev.waterdog:waterdog</exclude>
-                  </excludes>
-                </exclude>
+                <excludes>
+                  <exclude>dev.waterdog:waterdog</exclude>
+                </excludes>
               </artifactSet>
             </configuration>
           </execution>

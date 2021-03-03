@@ -4,15 +4,15 @@ import alemiz.stargate.codec.ProtocolCodec;
 import alemiz.stargate.handler.StarGatePacketHandler;
 import alemiz.stargate.server.ServerSession;
 import alemiz.stargate.server.StarGateServer;
+import alemiz.stargate.session.StarGateSession;
 import alemiz.stargate.utils.ServerLoader;
 import alemiz.stargate.utils.StarGateLogger;
-import club.ubbly.common.stargate.handler.CustomPacketHandler;
 import club.ubbly.common.server.stargate.listener.StarGateServerListener;
 import club.ubbly.common.server.stargate.logger.Logger;
+import club.ubbly.common.stargate.handler.CustomPacketHandler;
 import club.ubbly.common.stargate.protocol.ProtocolInfo;
 import club.ubbly.common.stargate.protocol.packet.*;
 import dev.waterdog.plugin.Plugin;
-
 import java.lang.reflect.Constructor;
 import java.net.InetSocketAddress;
 import lombok.Getter;
@@ -59,26 +59,6 @@ public class CommunicationServer implements ServerLoader {
     server.setServerListener(new StarGateServerListener(this));
     registerPackets(server);
     server.start();
-  }
-
-  public StarGatePacketHandler instancePacketHandler(ServerSession serverSession) {
-    if (this.packetHandler == null) return null;
-
-    Constructor<?>[] constructors = packetHandler.getDeclaredConstructors();
-
-    try {
-      if (constructors.length == 0) {
-          return (StarGatePacketHandler) packetHandler.newInstance();
-      }
-
-      if (constructors.length == 1) {
-        return (StarGatePacketHandler) constructors[0].newInstance(serverSession);
-      }
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
-
-    return null;
   }
 
   private void registerPackets(StarGateServer server) {

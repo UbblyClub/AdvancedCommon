@@ -2,6 +2,7 @@ package club.ubbly.common.server.stargate.listener;
 
 import alemiz.stargate.server.ServerSession;
 import club.ubbly.common.server.stargate.CommunicationServer;
+import club.ubbly.common.stargate.handler.CustomPacketHandler;
 import dev.waterdog.plugin.Plugin;
 import java.net.InetSocketAddress;
 import lombok.AllArgsConstructor;
@@ -25,7 +26,12 @@ public class StarGateServerListener
   @Override
   public void onSessionAuthenticated(ServerSession session) {
     if (main.getPacketHandler() != null) {
-      session.setPacketHandler(main.instancePacketHandler(session));
+      session.setPacketHandler(
+        CustomPacketHandler.instancePacketHandler(
+          main.getPacketHandler(),
+          session
+        )
+      );
     }
 
     main
