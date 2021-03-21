@@ -20,10 +20,43 @@
 
   <repositories>
     <repository>
-      <id>nukkitx-repo</id>
-      <url>http://repo.nukkitx.com/main/</url>
+      <id>libs</id>
+      <url>file://${project.basedir}/lib</url>
+    </repository>
+    <repository>
+      <id>opencollab-repo-release</id>
+      <url>https://repo.opencollab.dev/maven-releases/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>opencollab-repo-snapshot</id>
+      <url>https://repo.opencollab.dev/maven-snapshots/</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
     </repository>
   </repositories>
+
+  <distributionManagement>
+    <repository>
+      <id>releases</id>
+      <name>opencollab-releases</name>
+      <url>https://repo.opencollab.dev/maven-releases</url>
+    </repository>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <name>opencollab-snapshots</name>
+      <url>https://repo.opencollab.dev/maven-snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
 
   <dependencies>
     <dependency>
@@ -72,6 +105,7 @@
               <artifactSet>
                 <excludes>
                   <exclude>alemiz.sgu.nukkit:sgu-nukkit</exclude>
+                  <exclude>cn.nukkit:nukkit</exclude>
                 </excludes>
               </artifactSet>
             </configuration>
