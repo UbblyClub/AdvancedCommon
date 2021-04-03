@@ -11,31 +11,34 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class QueueTransferPacket extends StarGatePacket {
+public class TransferPacket extends StarGatePacket {
 
   private String username;
   private String serverName;
+  private boolean instant;
 
   @Override
   public void encodePayload(ByteBuf byteBuf) {
     PacketHelper.writeString(byteBuf, username);
     PacketHelper.writeString(byteBuf, serverName);
+    PacketHelper.writeBoolean(byteBuf, instant);
   }
 
   @Override
   public void decodePayload(ByteBuf byteBuf) {
     username = PacketHelper.readString(byteBuf);
     serverName = PacketHelper.readString(byteBuf);
+    instant = PacketHelper.readBoolean(byteBuf);
   }
 
   public byte getPacketId() {
-    return ProtocolInfo.QUEUE_TRANSFER_PACKET;
+    return ProtocolInfo.TRANSFER_PACKET;
   }
 
   @Override
   public boolean handle(StarGatePacketHandler handler) {
     if (handler instanceof CustomPacketHandler) {
-      ((CustomPacketHandler) handler).handleQueueTransfer(this);
+      ((CustomPacketHandler) handler).handleTransfer(this);
 
       return true;
     }

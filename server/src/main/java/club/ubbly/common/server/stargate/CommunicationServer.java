@@ -1,10 +1,7 @@
 package club.ubbly.common.server.stargate;
 
 import alemiz.stargate.codec.ProtocolCodec;
-import alemiz.stargate.handler.StarGatePacketHandler;
-import alemiz.stargate.server.ServerSession;
 import alemiz.stargate.server.StarGateServer;
-import alemiz.stargate.session.StarGateSession;
 import alemiz.stargate.utils.ServerLoader;
 import alemiz.stargate.utils.StarGateLogger;
 import club.ubbly.common.server.stargate.listener.StarGateServerListener;
@@ -13,7 +10,7 @@ import club.ubbly.common.stargate.handler.CustomPacketHandler;
 import club.ubbly.common.stargate.protocol.ProtocolInfo;
 import club.ubbly.common.stargate.protocol.packet.*;
 import dev.waterdog.plugin.Plugin;
-import java.lang.reflect.Constructor;
+
 import java.net.InetSocketAddress;
 import lombok.Getter;
 
@@ -65,8 +62,8 @@ public class CommunicationServer implements ServerLoader {
     ProtocolCodec protocol = server.getProtocolCodec();
 
     protocol.registerPacket(
-      ProtocolInfo.QUEUE_TRANSFER_PACKET,
-      QueueTransferPacket.class
+      ProtocolInfo.TRANSFER_PACKET,
+      TransferPacket.class
     );
 
     protocol.registerPacket(

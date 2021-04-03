@@ -76,8 +76,8 @@ public class CommunicationClient implements ServerLoader {
     ProtocolCodec protocol = client.getProtocolCodec();
 
     protocol.registerPacket(
-      ProtocolInfo.QUEUE_TRANSFER_PACKET,
-      QueueTransferPacket.class
+      ProtocolInfo.TRANSFER_PACKET,
+      TransferPacket.class
     );
 
     protocol.registerPacket(

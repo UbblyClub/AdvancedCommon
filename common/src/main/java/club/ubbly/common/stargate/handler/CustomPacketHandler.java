@@ -6,7 +6,7 @@ import club.ubbly.common.stargate.protocol.packet.*;
 import java.lang.reflect.Constructor;
 
 public interface CustomPacketHandler {
-  void handleQueueTransfer(QueueTransferPacket packet);
+  void handleTransfer(TransferPacket packet);
 
   void handleUserUpdateInformation(UserUpdateInformationPacket packet);
 

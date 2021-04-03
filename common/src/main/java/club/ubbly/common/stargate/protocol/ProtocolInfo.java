@@ -1,7 +1,7 @@
 package club.ubbly.common.stargate.protocol;
 
 public interface ProtocolInfo {
-  byte QUEUE_TRANSFER_PACKET = 0x50;
+  byte TRANSFER_PACKET = 0x50;
   byte USER_UPDATE_INFORMATION = 0x51;
   byte USER_UPDATE_PERMISSIONS = 0x52;
   byte RANK_UPDATE_PERMISSIONS = 0x53;
