@@ -10,7 +10,6 @@ import club.ubbly.common.stargate.handler.CustomPacketHandler;
 import club.ubbly.common.stargate.protocol.ProtocolInfo;
 import club.ubbly.common.stargate.protocol.packet.*;
 import dev.waterdog.plugin.Plugin;
-
 import java.net.InetSocketAddress;
 import lombok.Getter;
 
@@ -61,10 +60,7 @@ public class CommunicationServer implements ServerLoader {
   private void registerPackets(StarGateServer server) {
     ProtocolCodec protocol = server.getProtocolCodec();
 
-    protocol.registerPacket(
-      ProtocolInfo.TRANSFER_PACKET,
-      TransferPacket.class
-    );
+    protocol.registerPacket(ProtocolInfo.TRANSFER_PACKET, TransferPacket.class);
 
     protocol.registerPacket(
       ProtocolInfo.USER_UPDATE_INFORMATION_PACKET,
@@ -87,13 +83,18 @@ public class CommunicationServer implements ServerLoader {
     );
 
     protocol.registerPacket(
-        ProtocolInfo.BROADCAST_PACKET,
-        BroadcastPacket.class
+      ProtocolInfo.BROADCAST_PACKET,
+      BroadcastPacket.class
     );
 
     protocol.registerPacket(
-        ProtocolInfo.FOLLOW_PLAYER_PACKET,
-        FollowPlayerPacket.class
+      ProtocolInfo.FOLLOW_PLAYER_PACKET,
+      FollowPlayerPacket.class
+    );
+
+    protocol.registerPacket(
+      ProtocolInfo.SEND_MESSAGE_PACKET,
+      SendMessagePacket.class
     );
   }
 }

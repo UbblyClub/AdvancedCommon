@@ -7,8 +7,8 @@ import java.lang.reflect.Constructor;
 
 public interface CustomPacketHandler {
   static StarGatePacketHandler instancePacketHandler(
-      Class<? extends CustomPacketHandler> packetHandler,
-      StarGateSession serverSession
+    Class<? extends CustomPacketHandler> packetHandler,
+    StarGateSession serverSession
   ) {
     if (packetHandler == null) return null;
 
@@ -43,5 +43,7 @@ public interface CustomPacketHandler {
 
   void handleRankUpdatePermissions(RankUpdatePermissionsPacket packet);
 
-  void handleFollow(FollowPlayerPacket followPacket);
+  void handleFollowPlayer(FollowPlayerPacket followPacket);
+
+  void handleSendMessage(SendMessagePacket sendMessagePacket);
 }

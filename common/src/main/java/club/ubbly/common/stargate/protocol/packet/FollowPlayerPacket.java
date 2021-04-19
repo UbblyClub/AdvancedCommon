@@ -38,7 +38,7 @@ public class FollowPlayerPacket extends StarGatePacket {
   @Override
   public boolean handle(StarGatePacketHandler handler) {
     if (handler instanceof CustomPacketHandler) {
-      ((CustomPacketHandler) handler).handleFollow(this);
+      ((CustomPacketHandler) handler).handleFollowPlayer(this);
 
       return true;
     }

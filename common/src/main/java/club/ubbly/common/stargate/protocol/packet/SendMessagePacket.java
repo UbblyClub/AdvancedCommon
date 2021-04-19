@@ -11,7 +11,9 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class BroadcastPacket extends StarGatePacket {
+public class SendMessagePacket extends StarGatePacket {
+
+  private String user;
 
   private boolean language;
   private String message;
@@ -30,6 +32,8 @@ public class BroadcastPacket extends StarGatePacket {
 
   @Override
   public void encodePayload(ByteBuf byteBuf) {
+    PacketHelper.writeString(byteBuf, user);
+
     PacketHelper.writeBoolean(byteBuf, language);
     PacketHelper.writeString(byteBuf, message);
     PacketHelper.writeString(byteBuf, permission);
@@ -47,6 +51,8 @@ public class BroadcastPacket extends StarGatePacket {
 
   @Override
   public void decodePayload(ByteBuf byteBuf) {
+    user = PacketHelper.readString(byteBuf);
+
     language = PacketHelper.readBoolean(byteBuf);
     message = PacketHelper.readString(byteBuf);
     permission = PacketHelper.readString(byteBuf);
@@ -63,13 +69,13 @@ public class BroadcastPacket extends StarGatePacket {
   }
 
   public byte getPacketId() {
-    return ProtocolInfo.BROADCAST_PACKET;
+    return ProtocolInfo.SEND_MESSAGE_PACKET;
   }
 
   @Override
   public boolean handle(StarGatePacketHandler handler) {
     if (handler instanceof CustomPacketHandler) {
-      ((CustomPacketHandler) handler).handleBroadcast(this);
+      ((CustomPacketHandler) handler).handleSendMessage(this);
 
       return true;
     }

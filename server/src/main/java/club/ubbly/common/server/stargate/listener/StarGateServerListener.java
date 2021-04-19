@@ -26,8 +26,8 @@ public class StarGateServerListener
   @Override
   public void onSessionAuthenticated(ServerSession session) {
     StarGatePacketHandler handler = CustomPacketHandler.instancePacketHandler(
-        main.getPacketHandler(),
-        session
+      main.getPacketHandler(),
+      session
     );
 
     if (handler != null) {

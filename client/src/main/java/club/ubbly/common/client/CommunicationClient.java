@@ -75,10 +75,7 @@ public class CommunicationClient implements ServerLoader {
   private void registerPackets(StarGateClient client) {
     ProtocolCodec protocol = client.getProtocolCodec();
 
-    protocol.registerPacket(
-      ProtocolInfo.TRANSFER_PACKET,
-      TransferPacket.class
-    );
+    protocol.registerPacket(ProtocolInfo.TRANSFER_PACKET, TransferPacket.class);
 
     protocol.registerPacket(
       ProtocolInfo.USER_UPDATE_INFORMATION_PACKET,
@@ -101,13 +98,18 @@ public class CommunicationClient implements ServerLoader {
     );
 
     protocol.registerPacket(
-        ProtocolInfo.BROADCAST_PACKET,
-        BroadcastPacket.class
+      ProtocolInfo.BROADCAST_PACKET,
+      BroadcastPacket.class
     );
 
     protocol.registerPacket(
-        ProtocolInfo.FOLLOW_PLAYER_PACKET,
-        FollowPlayerPacket.class
+      ProtocolInfo.FOLLOW_PLAYER_PACKET,
+      FollowPlayerPacket.class
+    );
+
+    protocol.registerPacket(
+      ProtocolInfo.SEND_MESSAGE_PACKET,
+      SendMessagePacket.class
     );
   }
 }

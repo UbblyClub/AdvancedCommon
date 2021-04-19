@@ -2,7 +2,6 @@ package club.ubbly.common.client.logger;
 
 import alemiz.stargate.utils.StarGateLogger;
 import cn.nukkit.plugin.PluginBase;
-
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
