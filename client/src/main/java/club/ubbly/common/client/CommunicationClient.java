@@ -104,5 +104,10 @@ public class CommunicationClient implements ServerLoader {
         ProtocolInfo.BROADCAST_PACKET,
         BroadcastPacket.class
     );
+
+    protocol.registerPacket(
+        ProtocolInfo.FOLLOW_PLAYER_PACKET,
+        FollowPlayerPacket.class
+    );
   }
 }

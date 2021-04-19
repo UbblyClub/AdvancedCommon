@@ -6,21 +6,9 @@ import club.ubbly.common.stargate.protocol.packet.*;
 import java.lang.reflect.Constructor;
 
 public interface CustomPacketHandler {
-  void handleTransfer(TransferPacket packet);
-
-  void handleBroadcast(BroadcastPacket packet);
-
-  void handleUserUpdateInformation(UserUpdateInformationPacket packet);
-
-  void handleUserUpdatePermissions(UserUpdatePermissionsPacket packet);
-
-  void handleUserUpdateAuthentication(UserUpdateAuthenticationPacket packet);
-
-  void handleRankUpdatePermissions(RankUpdatePermissionsPacket packet);
-
   static StarGatePacketHandler instancePacketHandler(
-    Class<? extends CustomPacketHandler> packetHandler,
-    StarGateSession serverSession
+      Class<? extends CustomPacketHandler> packetHandler,
+      StarGateSession serverSession
   ) {
     if (packetHandler == null) return null;
 
@@ -42,4 +30,18 @@ public interface CustomPacketHandler {
 
     return null;
   }
+
+  void handleTransfer(TransferPacket packet);
+
+  void handleBroadcast(BroadcastPacket packet);
+
+  void handleUserUpdateInformation(UserUpdateInformationPacket packet);
+
+  void handleUserUpdatePermissions(UserUpdatePermissionsPacket packet);
+
+  void handleUserUpdateAuthentication(UserUpdateAuthenticationPacket packet);
+
+  void handleRankUpdatePermissions(RankUpdatePermissionsPacket packet);
+
+  void handleFollow(FollowPlayerPacket followPacket);
 }

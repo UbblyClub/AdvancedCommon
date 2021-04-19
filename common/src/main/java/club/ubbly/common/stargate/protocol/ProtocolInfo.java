@@ -7,4 +7,5 @@ public interface ProtocolInfo {
   byte RANK_UPDATE_PERMISSIONS_PACKET = 0x53;
   byte USER_UPDATE_AUTHENTICATION_PACKET = 0x54;
   byte BROADCAST_PACKET = 0x55;
+  byte FOLLOW_PLAYER_PACKET = 0x56;
 }

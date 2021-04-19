@@ -4,7 +4,6 @@ import alemiz.stargate.handler.StarGatePacketHandler;
 import alemiz.stargate.server.ServerSession;
 import club.ubbly.common.server.stargate.CommunicationServer;
 import club.ubbly.common.stargate.handler.CustomPacketHandler;
-import dev.waterdog.plugin.Plugin;
 import java.net.InetSocketAddress;
 import lombok.AllArgsConstructor;
 

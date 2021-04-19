@@ -90,5 +90,10 @@ public class CommunicationServer implements ServerLoader {
         ProtocolInfo.BROADCAST_PACKET,
         BroadcastPacket.class
     );
+
+    protocol.registerPacket(
+        ProtocolInfo.FOLLOW_PLAYER_PACKET,
+        FollowPlayerPacket.class
+    );
   }
 }
