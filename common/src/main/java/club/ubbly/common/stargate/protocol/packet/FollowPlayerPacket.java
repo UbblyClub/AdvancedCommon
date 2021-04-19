@@ -13,19 +13,22 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class FollowPlayerPacket extends StarGatePacket {
 
-  private String from;
-  private String to;
+  private String user;
+  private String target;
+  private boolean instant;
 
   @Override
   public void encodePayload(ByteBuf byteBuf) {
-    PacketHelper.writeString(byteBuf, from);
-    PacketHelper.writeString(byteBuf, to);
+    PacketHelper.writeString(byteBuf, user);
+    PacketHelper.writeString(byteBuf, target);
+    PacketHelper.writeBoolean(byteBuf, instant);
   }
 
   @Override
   public void decodePayload(ByteBuf byteBuf) {
-    from = PacketHelper.readString(byteBuf);
-    to = PacketHelper.readString(byteBuf);
+    user = PacketHelper.readString(byteBuf);
+    target = PacketHelper.readString(byteBuf);
+    instant = PacketHelper.readBoolean(byteBuf);
   }
 
   public byte getPacketId() {
