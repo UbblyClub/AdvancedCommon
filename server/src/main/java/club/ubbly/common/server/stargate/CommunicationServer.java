@@ -67,23 +67,28 @@ public class CommunicationServer implements ServerLoader {
     );
 
     protocol.registerPacket(
-      ProtocolInfo.USER_UPDATE_INFORMATION,
+      ProtocolInfo.USER_UPDATE_INFORMATION_PACKET,
       UserUpdateInformationPacket.class
     );
 
     protocol.registerPacket(
-      ProtocolInfo.USER_UPDATE_AUTHENTICATION,
+      ProtocolInfo.USER_UPDATE_AUTHENTICATION_PACKET,
       UserUpdateAuthenticationPacket.class
     );
 
     protocol.registerPacket(
-      ProtocolInfo.USER_UPDATE_PERMISSIONS,
+      ProtocolInfo.USER_UPDATE_PERMISSIONS_PACKET,
       UserUpdatePermissionsPacket.class
     );
 
     protocol.registerPacket(
-      ProtocolInfo.RANK_UPDATE_PERMISSIONS,
+      ProtocolInfo.RANK_UPDATE_PERMISSIONS_PACKET,
       RankUpdatePermissionsPacket.class
+    );
+
+    protocol.registerPacket(
+        ProtocolInfo.BROADCAST_PACKET,
+        BroadcastPacket.class
     );
   }
 }

@@ -8,6 +8,8 @@ import java.lang.reflect.Constructor;
 public interface CustomPacketHandler {
   void handleTransfer(TransferPacket packet);
 
+  void handleBroadcast(BroadcastPacket packet);
+
   void handleUserUpdateInformation(UserUpdateInformationPacket packet);
 
   void handleUserUpdatePermissions(UserUpdatePermissionsPacket packet);

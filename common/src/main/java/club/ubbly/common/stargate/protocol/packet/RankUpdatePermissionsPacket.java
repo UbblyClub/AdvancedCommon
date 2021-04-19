@@ -26,7 +26,7 @@ public class RankUpdatePermissionsPacket extends StarGatePacket {
   }
 
   public byte getPacketId() {
-    return ProtocolInfo.RANK_UPDATE_PERMISSIONS;
+    return ProtocolInfo.RANK_UPDATE_PERMISSIONS_PACKET;
   }
 
   @Override

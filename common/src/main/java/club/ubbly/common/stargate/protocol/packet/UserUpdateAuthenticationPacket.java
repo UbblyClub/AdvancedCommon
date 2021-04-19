@@ -29,7 +29,7 @@ public class UserUpdateAuthenticationPacket extends StarGatePacket {
   }
 
   public byte getPacketId() {
-    return ProtocolInfo.USER_UPDATE_AUTHENTICATION;
+    return ProtocolInfo.USER_UPDATE_AUTHENTICATION_PACKET;
   }
 
   @Override

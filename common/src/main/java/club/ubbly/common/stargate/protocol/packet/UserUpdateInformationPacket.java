@@ -26,7 +26,7 @@ public class UserUpdateInformationPacket extends StarGatePacket {
   }
 
   public byte getPacketId() {
-    return ProtocolInfo.USER_UPDATE_INFORMATION;
+    return ProtocolInfo.USER_UPDATE_INFORMATION_PACKET;
   }
 
   @Override

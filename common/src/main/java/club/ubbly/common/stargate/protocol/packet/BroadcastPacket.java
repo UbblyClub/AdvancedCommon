@@ -11,28 +11,28 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class UserUpdatePermissionsPacket extends StarGatePacket {
+public class BroadcastPacket extends StarGatePacket {
 
-  private String username;
+  private String message;
 
   @Override
   public void encodePayload(ByteBuf byteBuf) {
-    PacketHelper.writeString(byteBuf, username);
+    PacketHelper.writeString(byteBuf, message);
   }
 
   @Override
   public void decodePayload(ByteBuf byteBuf) {
-    username = PacketHelper.readString(byteBuf);
+    message = PacketHelper.readString(byteBuf);
   }
 
   public byte getPacketId() {
-    return ProtocolInfo.USER_UPDATE_PERMISSIONS_PACKET;
+    return ProtocolInfo.BROADCAST_PACKET;
   }
 
   @Override
   public boolean handle(StarGatePacketHandler handler) {
     if (handler instanceof CustomPacketHandler) {
-      ((CustomPacketHandler) handler).handleUserUpdatePermissions(this);
+      ((CustomPacketHandler) handler).handleBroadcast(this);
 
       return true;
     }
