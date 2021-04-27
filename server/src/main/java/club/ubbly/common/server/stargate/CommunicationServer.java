@@ -9,7 +9,7 @@ import club.ubbly.common.server.stargate.logger.Logger;
 import club.ubbly.common.stargate.handler.CustomPacketHandler;
 import club.ubbly.common.stargate.protocol.ProtocolInfo;
 import club.ubbly.common.stargate.protocol.packet.*;
-import dev.waterdog.plugin.Plugin;
+import dev.waterdog.waterdogpe.plugin.Plugin;
 import java.net.InetSocketAddress;
 import lombok.Getter;
 

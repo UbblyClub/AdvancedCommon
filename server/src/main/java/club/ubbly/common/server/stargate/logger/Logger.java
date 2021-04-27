@@ -1,7 +1,7 @@
 package club.ubbly.common.server.stargate.logger;
 
 import alemiz.stargate.utils.StarGateLogger;
-import dev.waterdog.plugin.Plugin;
+import dev.waterdog.waterdogpe.plugin.Plugin;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
