@@ -20,10 +20,6 @@
 
   <repositories>
     <repository>
-      <id>libs</id>
-      <url>file://${project.basedir}/lib</url>
-    </repository>
-    <repository>
       <id>opencollab-repo-release</id>
       <url>https://repo.opencollab.dev/maven-releases/</url>
       <releases>
@@ -33,6 +29,7 @@
         <enabled>false</enabled>
       </snapshots>
     </repository>
+
     <repository>
       <id>opencollab-repo-snapshot</id>
       <url>https://repo.opencollab.dev/maven-snapshots/</url>
@@ -43,6 +40,7 @@
         <enabled>true</enabled>
       </snapshots>
     </repository>
+
   </repositories>
 
   <distributionManagement>
@@ -80,41 +78,4 @@
       <scope>provided</scope>
     </dependency>
   </dependencies>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-shade-plugin</artifactId>
-        <version>3.2.4</version>
-        <executions>
-          <execution>
-            <phase>install</phase>
-            <goals>
-              <goal>shade</goal>
-            </goals>
-            <configuration>
-              <artifactSet>
-                <excludes>
-                  <exclude>alemiz.sgu.nukkit:sgu-nukkit</exclude>
-                  <exclude>cn.nukkit:nukkit</exclude>
-                </excludes>
-              </artifactSet>
-            </configuration>
-          </execution>
-        </executions>
-        <configuration>
-          <createDependencyReducedPom>false</createDependencyReducedPom>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
 </project>
